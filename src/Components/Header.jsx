@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "/src/assets/svg/maple-logo.svg";
 import headerPhoto1 from "/src/assets/img/header-photo-1.jpg";
 import headerPhoto2 from "/src/assets/img/header-photo-2.jpg";

@@ -2,7 +2,7 @@
 .header {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 3.75rem;
 }
 
 
@@ -23,7 +23,7 @@
 .navList {
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 11.25rem;
   font-size: 1.5rem;
   margin: 0;
   padding: 0;
