@@ -7,17 +7,17 @@ function Counter() {
     <div className={styles.CounterContainer}>
 
       <div>
-        <span>+16</span>
+        <b><span>+16</span></b>
         <p>Locais</p>
       </div>
 
       <div className={styles.customCounter}>
-        <span>+100</span>
+        <b><span>+100</span></b>
         <p>Clientes</p>
       </div>
 
       <div>
-        <span>+200</span>
+        <b><span>+200</span></b>
         <p>Compras</p>
       </div>
 
