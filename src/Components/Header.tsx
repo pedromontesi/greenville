@@ -1,11 +1,9 @@
 import logo from "/src/assets/svg/maple-logo.svg";
-import headerPhoto1 from "/src/assets/img/header-photo-1.jpg";
-import headerPhoto2 from "/src/assets/img/header-photo-2.jpg";
-import headerPhoto3 from "/src/assets/img/header-photo-3.jpg";
+import headerPhoto from "/src/assets/img/header-photo.jpg";
 import styles from "./Header.module.scss";
 
 const Header = () => {
-  const photos = [headerPhoto1, headerPhoto2, headerPhoto3];
+  const photo = [headerPhoto];
 
   return (
     <header className={styles.header}>
@@ -15,15 +13,14 @@ const Header = () => {
           <li><a href="#">Sobre</a></li>
           <li><a href="#">Preço</a></li>
           <li><a href="#">Galeria</a></li>
+          <li className={styles.ctaContainer}><a href="#" className={styles.cta}>Faça um orçamento</a></li>
         </ul>
       </nav>
 
-      <ul className={styles.photoGallery}>
-        {photos.map((photo, index) => (
-          <li key={index}>
-            <img src={photo} alt={`Header Photo ${index + 1}`} />
-          </li>
-        ))}
+      <ul>
+            <li>
+              <img className={styles.headerImage} src={photo[0]} alt="Header Photo" />
+            </li>
       </ul>
 
 

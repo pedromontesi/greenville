@@ -3,8 +3,7 @@
   flex-direction: column;
   gap: 5.75rem; 
   margin: 0 auto;
-  max-width: 1400px;
-  padding: 2rem;
+  padding: 1.25rem;
 }
 .aboutPhoto {
   border-radius: 40px;
@@ -15,9 +14,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   background: #f3f3f3;
-  margin-top: 3.25rem;
   border-radius: 40px;
-  padding: 2rem;
+  padding: 3rem 8.75rem;
 }
 
 .offBackground {
@@ -40,6 +38,8 @@
   color: #474747;
   font-size: 1.5rem;
   line-height: 1.4;
+  max-width: 487px;
+  white-space: break-spaces;
 }
 
 img {
