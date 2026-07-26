@@ -13,8 +13,8 @@ const Main = () => {
           <div className={styles.textBox}>
             <h1>CONEXÃO</h1>
             <p>
-              Apartamentos bem localizados e rodeados por<br />
-              árvores, que oferecem conforto, praticidade e<br />
+              Apartamentos bem localizados e rodeados por
+              árvores, que oferecem conforto, praticidade e
               uma conexão agradável com a natureza.
             </p>
           </div>
@@ -26,9 +26,9 @@ const Main = () => {
           <div className={styles.textBox}>
             <h1>SAUDADE</h1>
             <p>
-              Apartamentos com fachada em cores claras, que<br />
-              remetem à leveza do verão. Bem conservados por<br />
-              fora, destacam-se pela aparência agradável e<br />
+              Apartamentos com fachada em cores claras, que
+              remetem à leveza do verão. Bem conservados por
+              fora, destacam-se pela aparência agradável e
               acolhedora.
             </p>
           </div>
@@ -38,9 +38,9 @@ const Main = () => {
           <div className={styles.textBox}>
             <h1>HISTÓRIA</h1>
             <p>
-              Prédios históricos que carregam consigo a<br />
-              valorização do tempo, momentos e autenticidade.<br />
-              Como esta porta de madeira original que hoje<br />
+              Prédios históricos que carregam consigo 
+              valorização do tempo, momentos e autenticidade.
+              Como esta porta de madeira original que hoje
               simboliza a continuidade da vida urbana.
             </p>
           </div>
