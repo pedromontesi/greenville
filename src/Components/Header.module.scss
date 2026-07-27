@@ -1,16 +1,25 @@
 
-.ctaContainer:before {
-  content: "➜";
-  position: absolute;
-  top: 0;
-  left: 0;
-  position: relative;
-  color: #fff;
-  background-color: #060606;
-  padding: 10px 12px;
-  border-radius: 50%;
+.showcaseCointainer {
+  display: flex;
+  justify-content: space-between;
 }
 
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    min-width: 50%;
+    background: #FFFAF3;
+  }
+
+  .textContainer p {
+    max-width: 600px;
+    text-align: center;
+    font-size: 30px;
+
+  }
 
 .cta {
   background-color: #060606;
@@ -18,14 +27,17 @@
   border-radius: 24px;
   color: #fff !important;
   font-family: sans-serif;
+  text-decoration: none;
 }
 
-.headerImage {
-  max-width: 100%;
-  padding-top: 60px;
-  height: 900px;
-  width: 100%;
+.ctaContainer {
+  list-style: none;
+}
+
+.headerImage { 
   object-fit: cover;
+  max-width: 100%;
+  height: 100vh;
 }
 
 .nav {
@@ -37,11 +49,17 @@
   padding: 10px 15px;
 
 
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   position: fixed;
   z-index: 1;
-  background-color: white;
   width: 100%;
+
+
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15.4px);
+  -webkit-backdrop-filter: blur(15.4px);
+
+  justify-content: center;
 }
 
 
@@ -55,17 +73,16 @@
   display: flex;
   flex-wrap: wrap;
   font-size: 16px;
+  gap: 32px;
   
   text-transform: uppercase;
-  font-weight: 700;
   
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   list-style: none;
 
-  
-  min-width: 600px;
+    
   justify-content: space-between;
 }
 
