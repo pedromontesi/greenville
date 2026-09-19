@@ -1,0 +1,147 @@
+@use 'sass:map';
+
+$black-01: #222 !default;
+$fontMedium: 500 !default;
+
+@function _is-size($value) {
+  @return true;
+}
+
+// Overwrites Breakpoints & Mixins ////////////////////
+
+$breakpoints: (
+  'phone': 320px,
+  'phonemid': 375px,
+  'tablet-small': 640px,
+  'tablet': 768px,
+  'tablet-medium': 840px,
+  'notebook-small': 1026px,
+  'notebook-medium': 1152px,
+  'notebook': 1280px,
+  'notebook-big': 1366px,
+  'desktop': 1440px,
+  'desktop-big': 1512px,
+  'desktop-wide': 1920px
+);
+
+@mixin mq($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint `#{$breakpoint}` não existe em $breakpoints.";
+  }
+}
+
+@mixin triangle-box($width, $height: $width, $color: var(--fs-color-neutral-0), $position: "up") {
+  $width: $width / 2;
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+
+  @if $position == "up" {
+    border-width: 0 $width $height $width;
+    border-bottom-color: $color;
+  }
+  @else if $position == "down" {
+    border-width: $height $width 0 $width;
+    border-top-color: $color;
+  }
+  @else if $position == "left" {
+    border-width: $width $height $width 0;
+    border-right-color: $color;
+  }
+  @else if $position == "right" {
+    border-width: $width 0 $width $height;
+    border-left-color: $color;
+  }
+}
+
+@mixin popover-position($reference-width, $indicator-width, $indicator-height, $offset: 0) {
+  position: absolute;
+  top: calc(100% + $indicator-height);
+  left: auto;
+  right: calc(
+    ($reference-width/2 - $indicator-width/2)
+     - $offset
+  );
+}
+
+$font-size: 16;
+$line-height: 16;
+$font-units: (
+  'rem',
+  'em',
+  'px',
+  '%',
+  'pt',
+  'ch'
+);
+
+@function has-font-unit($value) {
+  @return index($font-units, unit($value)) != null;
+}
+
+@mixin font-size($size-value: $font-size) {
+  @if type-of($size-value) == 'number' {
+    @if (has-font-unit($size-value)) {
+      font-size: calc(#{$size-value} / var(--calc-font));
+    } @else {
+      font-size: calc(#{$size-value}px / var(--calc-font));
+    }
+  } @else {
+    font-size: calc(#{$size-value} / var(--calc-font));
+  }
+}
+@mixin line-height($size-value: $line-height) {
+  line-height: $size-value + px;
+  line-height: calc($size-value / $line-height) + rem;
+}
+
+@mixin letter-spacing($letterspacing) {
+  letter-spacing: calc($letterspacing / 1000) + rem;
+}
+
+@mixin textConfig($color: $black-01, $fontSize: $font-size, $fontWeight: $fontMedium, $line-height: 16, $textAlign: left, $textTransform: initial, $letterspacing: 0) {
+  color: $color;
+  @include font-size($fontSize);
+  font-weight: $fontWeight;
+  @include line-height($line-height);
+  @include letter-spacing($letterspacing);
+  text-align: $textAlign;
+  text-transform: $textTransform;
+}
+
+@mixin grid($max-width: 1292px, $padding: 0 16px, $margin: 0 auto) {
+  margin: $margin;
+  max-width: $max-width;
+  padding: $padding;
+  width: 100%;
+}
+
+@mixin display-flex($align: center, $justify: center, $direction: row) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin transition($delay: 500ms, $type: all) {
+  transition: $type $delay ease-in-out;
+}
+@mixin size($width, $height: $width) {
+  @if _is-size($height) {
+    height: $height;
+  } @else {
+    @error '`#{$height}` is not a valid length for the `$height` argument '+'in the `size` mixin.';
+  }
+
+  @if _is-size($width) {
+    width: $width;
+  } @else {
+    @error '`#{$width}` is not a valid length for the `$width` argument '+'in the `size` mixin.';
+  }
+}

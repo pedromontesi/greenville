@@ -19,37 +19,39 @@ const heroPhotos = [
 
 const Header = () => {
   const pinRef = useRef<HTMLDivElement>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const images = imageRefs.current.filter(Boolean) as HTMLImageElement[];
-      if (images.length < 2) return;
+      const wrapper = wrapperRef.current;
+      const track = trackRef.current;
+      if (!wrapper || !track) return;
 
-      // Slider controlado pelo scroll: a seção fica "travada" (pin) na tela
-      // enquanto as imagens fazem crossfade em sequência; só libera o
-      // scroll da página quando o slide termina.
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: pinRef.current,
-          start: "top top",
-          end: () => `+=${(images.length - 1) * window.innerHeight}`,
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
+      // Quanto o trilho precisa andar para a última imagem encostar no fim
+      // do viewport visível.
+      const getScrollDistance = () =>
+        Math.max(0, track.scrollWidth - wrapper.clientWidth);
+
+      if (getScrollDistance() <= 0) return;
+
+      // Trilho de imagens lado a lado: a seção fica "travada" (pin) na tela
+      // enquanto o scroll do usuário desliza as imagens horizontalmente; o
+      // scroll da página só é liberado quando a última imagem termina.
+      const tween = gsap.to(track, {
+        x: () => -getScrollDistance(),
+        ease: "none",
       });
 
-      images.forEach((img, i) => {
-        if (i === 0) return;
-        tl.fromTo(
-          img,
-          { opacity: 0, scale: 1.06 },
-          { opacity: 1, scale: 1, ease: "none", duration: 1 },
-          i - 1
-        );
+      ScrollTrigger.create({
+        trigger: pinRef.current,
+        start: "top top",
+        end: () => `+=${getScrollDistance()}`,
+        pin: true,
+        animation: tween,
+        scrub: 1,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
       });
     }, pinRef);
 
@@ -67,24 +69,26 @@ const Header = () => {
         </ul> */}
       </nav>
 
-    <div ref={pinRef} className={styles.showcaseCointainer}>
-      <div ref={sliderRef} className={styles.imageWrapper}>
-        {heroPhotos.map((src, i) => (
-          <img
-            key={src}
-            ref={(el) => { imageRefs.current[i] = el; }}
-            className={styles.headerImage}
-            src={src}
-            alt={`Fachada Risotto ${i + 1}`}
-            style={{ opacity: i === 0 ? 1 : 0 }}
-          />
-        ))}
+      <div ref={pinRef} className={styles.showcaseContainer}>
+        <div ref={wrapperRef} className={styles.imageWrapper}>
+          <div ref={trackRef} className={styles.imageTrack}>
+            {heroPhotos.map((src, i) => (
+              <div className={styles.imageItem} key={src}>
+                <img
+                  className={styles.headerImage}
+                  src={src}
+                  alt={`Fachada Risotto ${i + 1}`}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.textContainer}>
+          <p className={styles.headerText}>O Greenville é um condomínio que une conforto, modernidade e contato com a natureza. Projetado para oferecer tranquilidade e bem-estar, proporciona um ambiente acolhedor, cercado por áreas verdes e pensado para quem valoriza qualidade de vida.</p>
+          <li className={styles.ctaContainer}><a href="#" className={styles.cta}>Faça um orçamento</a></li>
+        </div>
       </div>
-      <div className={styles.textContainer}>
-        <p className={styles.headerText}>O Risotto é um apartamento que une conforto, modernidade e contato com a natureza. Projetado para oferecer tranquilidade e bem-estar, proporciona um ambiente acolhedor, cercado por áreas verdes e pensado para quem valoriza qualidade de vida.</p>
-         <li className={styles.ctaContainer}><a href="#" className={styles.cta}>Faça um orçamento</a></li>
-      </div>
-    </div>
 
       <div className={styles.title}>
         <h1>RISOTTO</h1>

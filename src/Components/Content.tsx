@@ -9,7 +9,7 @@ const Main = () => {
     <section>
       <main className={styles.container}>
 
-        <div className={styles.block}>
+        <div className={`${styles.block} ${styles.FirstBlock}`}>
           <div className={styles.textBox}>
             <h1>CONEXÃO</h1>
             <p>
