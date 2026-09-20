@@ -15,6 +15,12 @@ const heroPhotos = [
   "https://images.unsplash.com/photo-1756668765680-80c792ff1238?w=1920&q=80&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1536663488274-baee3471fc69?w=1920&q=80&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1731223835878-adb504835539?w=1920&q=80&auto=format&fit=crop",
+  // Fachada com varandas cheias de plantas, num prédio cercado de árvores.
+  "https://images.unsplash.com/photo-1650805180950-4189f2c6665d?w=1920&q=80&auto=format&fit=crop",
+  // Prédio com fachada verde/plantas e entrada arborizada (Berlim).
+  "https://images.unsplash.com/photo-1694886735860-e33c7b93b5c8?w=1920&q=80&auto=format&fit=crop",
+  // Prédio cercado por árvores e vegetação densa.
+  "https://images.unsplash.com/photo-1661839986342-f5f4747f27a6?w=1920&q=80&auto=format&fit=crop",
 ];
 
 const Header = () => {
