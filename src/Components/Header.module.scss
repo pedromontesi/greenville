@@ -1,31 +1,27 @@
-
-.showcaseCointainer {
-  display: flex;
-  justify-content: space-between;
-}
+@use '../styles/custom-mixins' as *;
 
 .textContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    min-width: 50%;
-    background: #FFFAF3;
-  }
+  @include display-flex(center, center, column);
+  gap: 1.5rem;
+  background: #DDFDD9;
+  border-radius: 45px;
+  padding: 40px;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
 
-  .textContainer p {
-    max-width: 600px;
-    text-align: center;
-    font-size: 30px;
-
-  }
+.textContainer p {
+  text-align: center;
+  font-size: 30px;
+  color: #283426
+}
 
 .cta {
-  background-color: #060606;
+  background-color: #283426;
   padding: 10px 20px;
   border-radius: 24px;
-  color: #fff !important;
+  color: #DDFDD9;
   font-family: sans-serif;
   text-decoration: none;
 }
@@ -34,32 +30,87 @@
   list-style: none;
 }
 
-.headerImage { 
-  object-fit: cover;
-  max-width: 100%;
+// Container "travado" (pin) pelo GSAP ScrollTrigger enquanto o slide corre.
+// Antes essa classe se chamava `showcaseCointainer` (erro de digitação) e
+// não existia no CSS — o div ficava sem altura/estrutura nenhuma, então as
+// imagens (absolutas) não tinham onde se posicionar e o GSAP parecia não
+// fazer nada.
+.showcaseContainer {
+  @include display-flex(stretch, flex-start, column);
+  position: relative;
   height: 100vh;
 }
 
-.nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  
-  justify-content: space-between;
-  padding: 10px 15px;
+// Viewport que recorta o slide (largura fixa da tela, sem overflow visível).
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 93px;
+  border-radius: 40px;
+}
 
+// Trilho com as imagens lado a lado + gap entre elas. É esse elemento que o
+// GSAP translada horizontalmente conforme o usuário rola a página; o scroll
+// da página só é liberado depois que a última imagem chega ao fim do trilho.
+.imageTrack {
+  @include display-flex(stretch, flex-start, row);
+  gap: 1.5rem;
+  height: 100%;
+  width: max-content;
+  will-change: transform;
+
+  @include mq('tablet') {
+    gap: 2rem;
+  }
+
+  @include mq('notebook') {
+    gap: 2.5rem;
+  }
+}
+
+.imageItem {
+  position: relative;
+  flex: 0 0 auto;
+  height: 100%;
+  width: 88vw;
+  border-radius: 40px;
+  overflow: hidden;
+
+  @include mq('tablet') {
+    width: 60vw;
+  }
+
+  @include mq('notebook') {
+    width: 42vw;
+  }
+
+  @include mq('desktop') {
+    width: 34vw;
+  }
+}
+
+.headerImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav {
+  @include display-flex(center, center, row);
+  padding: 10px 15px;
 
   position: fixed;
   z-index: 1;
   width: 100%;
 
-
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(15.4px);
   -webkit-backdrop-filter: blur(15.4px);
-
-  justify-content: center;
 }
 
 
@@ -70,20 +121,17 @@
 
 
 .navList {
-  display: flex;
+  @include display-flex(center, space-between, row);
   flex-wrap: wrap;
   font-size: 16px;
   gap: 32px;
-  
+
   text-transform: uppercase;
-  
+
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   list-style: none;
-
-    
-  justify-content: space-between;
 }
 
 .navList li a {
@@ -98,9 +146,8 @@
 
 
 .photoGallery {
-  display: flex;
+  @include display-flex(center, flex-start, row);
   flex-wrap: wrap;
-
 
   margin: 4rem 0;
   padding: 0;
@@ -114,9 +161,7 @@
 }
 
 .title {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  @include display-flex(flex-start, center, column);
   margin-bottom: 5rem;
   margin-top: -13%;
   margin-left: 1%;
@@ -134,5 +179,3 @@
   color: #fff;
   margin: 0 0 0 20px;
 }
-
-
