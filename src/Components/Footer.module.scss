@@ -8,6 +8,15 @@
   margin-left: 15px;
   margin-right: 15px;
   margin-bottom: 15px;
+
+
+
+   @media (max-width: 900px) {
+    flex-direction: column-reverse;
+    align-items: start;
+  }
+
+
 }
 
 .conteiner {
@@ -40,4 +49,10 @@
 .logo {
   width: 15.625rem;
   height: 15.625rem;
+
+  @media (max-width: 900px) {
+    width: 5.625rem;
+    height: 4.625rem;
+  }
+
 }

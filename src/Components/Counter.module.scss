@@ -16,10 +16,17 @@
     color: #222;
     font-size: 3.75rem;
     gap: 8.75rem;
+    
+     @media (max-width: 768px) {
+        margin-top: 0;
+        flex-direction: column;
+    }
 }
 
 .customCounter {
     color: #222;
     margin-top: 3.75rem;
+    flex-direction: row;
+
 }
 

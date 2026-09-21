@@ -14,7 +14,12 @@
 .textContainer p {
   text-align: center;
   font-size: 30px;
-  color: #283426
+  color: #283426;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
 }
 
 .cta {
@@ -165,6 +170,10 @@
   margin-bottom: 5rem;
   margin-top: -13%;
   margin-left: 1%;
+
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
 }
 
 .title h1 {

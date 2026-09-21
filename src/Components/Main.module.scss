@@ -24,6 +24,12 @@
 .block .textBox p, 
 .block .textBox h1 {
   color: #DDFDD9;
+   @media (max-width: 768px) {
+        h1, p {
+            font-size: 1.25rem;
+
+        }
+    }
   
  
 }
@@ -47,6 +53,12 @@
   margin-bottom: 1.125rem;
   font-size: 6rem;
   line-height: 1.4;
+
+
+   @media (max-width: 768px) {
+    font-size: 40px;
+  }
+
 }
 
 .textBox p {
@@ -55,5 +67,12 @@
   line-height: 1.4;
   max-width: 487px;
   white-space: break-spaces;
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+    max-width: 340px;
+    margin-bottom: 1.25rem;
+  }
+
 }
 
