@@ -95,11 +95,6 @@ const Header = () => {
           <li className={styles.ctaContainer}><a href="#" className={styles.cta}>Faça um orçamento</a></li>
         </div>
       </div>
-
-      <div className={styles.title}>
-        <h1>RISOTTO</h1>
-        <p>Apartamentos em Áreas Verdes</p>
-      </div>
     </header>
   );
 };
