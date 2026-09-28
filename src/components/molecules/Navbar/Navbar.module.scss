@@ -1,0 +1,14 @@
+@use '../../../styles/custom-mixins' as *;
+
+.nav {
+  @include display-flex(center, center, row);
+  padding: 15px 0;
+
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15.4px);
+  -webkit-backdrop-filter: blur(15.4px);
+}

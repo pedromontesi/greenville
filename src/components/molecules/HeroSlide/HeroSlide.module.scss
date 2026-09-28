@@ -1,0 +1,29 @@
+@use '../../../styles/custom-mixins' as *;
+
+.item {
+  position: relative;
+  flex: 0 0 auto;
+  height: 100%;
+  width: 88vw;
+  border-radius: 40px;
+  overflow: hidden;
+
+  @include mq('tablet') {
+    width: 60vw;
+  }
+
+  @include mq('notebook') {
+    width: 42vw;
+  }
+
+  @include mq('desktop') {
+    width: 34vw;
+  }
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

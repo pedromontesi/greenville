@@ -1,0 +1,21 @@
+@use '../../../styles/custom-mixins' as *;
+
+.card {
+  @include display-flex(center, center, column);
+  gap: 1.5rem;
+  background: #DDFDD9;
+  border-radius: 45px;
+  padding: 40px;
+  margin: 20px 15px 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.20) 0px 1px 3px 0px;
+}
+
+.card p {
+  text-align: center;
+  font-size: 30px;
+  color: #283426;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+}

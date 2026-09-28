@@ -1,0 +1,7 @@
+.offset {
+  margin-top: 3.75rem;
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
+}

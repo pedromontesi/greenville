@@ -1,4 +1,4 @@
-.background {
+.footer {
   background: #DDFDD9;
   display: flex;
   justify-content: space-between;
@@ -10,49 +10,28 @@
   margin-bottom: 15px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px 0px;
 
-
-   @media (max-width: 900px) {
+  @media (max-width: 900px) {
     flex-direction: column-reverse;
     align-items: start;
   }
-
-
 }
 
-.conteiner {
+.content {
   display: flex;
   flex-direction: column;
   max-width: 37.5rem;
 }
 
-.conteiner h1 {
+.content h1 {
   font-size: 2rem;
   color: #222;
 }
 
-.conteiner p {
+.content p {
   font-size: 1.5rem;
   color: #474747;
 }
 
-.socialBox {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 1.125rem 0 2rem 0;
-  gap: 0.875rem;
-}
-
 .logoBox {
   flex-shrink: 0;
-}
-
-.logo {
-  width: 15.625rem;
-  height: 15.625rem;
-
-  @media (max-width: 900px) {
-    width: 5.625rem;
-    height: 4.625rem;
-  }
-
 }

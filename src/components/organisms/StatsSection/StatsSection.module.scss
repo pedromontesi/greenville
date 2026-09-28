@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  min-height: 680px;
+}
+
+.stats {
+  display: flex;
+  gap: 8.75rem;
+  text-align: center;
+  color: #283426;
+  font-size: 3.75rem;
+
+  @media (max-width: 768px) {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    flex-direction: column;
+  }
+}
